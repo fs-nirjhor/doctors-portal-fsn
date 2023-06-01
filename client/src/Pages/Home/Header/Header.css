@@ -1,0 +1,16 @@
+.header-container {
+  height: 600px;
+  background-image: url(../../../images/bg.png);
+  background-size: cover;
+  position: relative;
+}
+.header-container::after {
+  height: 600px;
+  width: 40%;
+  background: #3B4155;
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -50;
+}
