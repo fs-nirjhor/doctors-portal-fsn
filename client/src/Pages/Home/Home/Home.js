@@ -1,11 +1,21 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import Header from "../Header/Header";
+import ServiceArea from "../ServiceArea/ServiceArea";
+import Terms from "../Terms/Terms";
+import Appointment from "../Appointment/Appointment";
+
 
 const Home = () => {
 return (
-  <div>
+  <main>
     <Header/>
-  </div>
+    <Container >
+      <ServiceArea/>
+      <Terms/>
+      <Appointment/>
+    </Container>
+  </main>
 );
 };
 

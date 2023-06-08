@@ -27,7 +27,7 @@ const BuisnessInfo = () => {
     }
     ] ;
 return (
-  <Container>
+  <Container className="info-container">
     <Row xs={1} md={3}>
     {
       cardInfo.map(card => <InfoCard card={card} key={card.title}/>)

@@ -3,7 +3,7 @@ import { Row, Col, Card } from "react-bootstrap";
 
 const InfoCard = ({card}) => {
 return (
-     <Col>
+     <Col className="my-2">
       <Card className="p-2 h-100" text="white" style={{background: card.color}}>
         <Row className="align-items-center">
         <Col xs={3} style={{fontSize: '3em'}}>
