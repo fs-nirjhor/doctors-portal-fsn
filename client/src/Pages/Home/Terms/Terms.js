@@ -6,7 +6,7 @@ const Terms = () => {
 return (
     <Row xs={1} md={2} className="align-items-center my-5">
       <Col >
-      <img src={treatment} alt="treatment" className="img-fluid p-2"/>
+      <img src={treatment} alt="treatment" className="img-fluid p-3"/>
       </Col>
       <Col >
         <p className="h2">Exceptional Dental Care, on Your Terms</p>
