@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from "react-router-dom";
 import fluoride from "../../../images/fluoride.png" ;
+import "./NavigationBar.css";
 
 function NavigationBar() {
   return (
@@ -23,9 +24,9 @@ function NavigationBar() {
             <Nav.Link className="me-2" as={NavLink} to="/">Home</Nav.Link>
             <Nav.Link className="me-2" as={NavLink} to="/about">About</Nav.Link>
             <Nav.Link className="me-2" as={NavLink} to="/services">Dental Services</Nav.Link>
-            <Nav.Link className="text-white me-2" as={NavLink} to="/reviews">Reviews</Nav.Link>
-            <Nav.Link className="text-white me-2" as={NavLink} to="/blog">Blog</Nav.Link>
-            <Nav.Link className="text-white me-2" as={NavLink} to="/contact">Contact Us</Nav.Link>
+            <Nav.Link className="text-bw me-2" as={NavLink} to="/reviews">Reviews</Nav.Link>
+            <Nav.Link className="text-bw me-2" as={NavLink} to="/blog">Blog</Nav.Link>
+            <Nav.Link className="text-bw me-2" as={NavLink} to="/contact">Contact Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

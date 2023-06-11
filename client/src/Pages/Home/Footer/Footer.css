@@ -1,0 +1,12 @@
+.social-icon {
+  color: #1CC7C1;
+  border: 1px solid #1CC7C1;
+  font-size: 30px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 100%;
+}
+.social-icon:hover {
+  color: white;
+  background: #1CC7C1;
+}
