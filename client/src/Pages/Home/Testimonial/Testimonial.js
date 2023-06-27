@@ -35,7 +35,7 @@ const Testimonial = () => {
     <section className="my-5 px-2">
       <Row className="align-items-center">
         <Col xs={8}>
-          <p style={{ color: "#1CC7C1" }} className="h4 mb-3">
+          <p className="h4 mb-3 text-brand">
             TESTIMONIAL
           </p>
           <p className="h1">What's Our Patients Says</p>

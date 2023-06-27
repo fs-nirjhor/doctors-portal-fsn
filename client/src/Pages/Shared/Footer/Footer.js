@@ -22,7 +22,7 @@ const Footer = () => {
           <p>Check Up</p>
         </Col>
         <Col>
-          <p className="text-info my-3">Service</p>
+          <p className="text-brand h5 my-3">Service</p>
           <p>Emergency Dental Care</p>
           <p>Check Up</p>
           <p>Treatment of Personal Diseases</p>
@@ -32,7 +32,7 @@ const Footer = () => {
           <p>Check Up</p>
         </Col>
         <Col>
-          <p className="text-info my-3">Oral Health</p>
+          <p className="text-brand h5 my-3">Oral Health</p>
           <p>Emergency Dental Care</p>
           <p>Check Up</p>
           <p>Treatment of Personal Diseases</p>
@@ -42,7 +42,7 @@ const Footer = () => {
           <p>Check Up</p>
         </Col>
         <Col>
-          <p className="text-info my-3">Our Address</p>
+          <p className="text-brand h5 my-3">Our Address</p>
           <p className="mb-3">New York - 101010 Hudson Yards</p>
           <p>
             <FaFacebookF className="social-icon" />

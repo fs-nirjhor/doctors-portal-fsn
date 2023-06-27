@@ -11,7 +11,7 @@ const Contact = () => {
         backgroundSize: "cover",
       }}
     >
-      <p className="text-info h3 mb-3">
+      <p className="text-brand h3 mb-3">
         CONTACT
       </p>
       <p className="text-white h1 mb-5">Always Connect With Us</p>

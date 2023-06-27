@@ -33,7 +33,7 @@ const Blog = () => {
 return (
   <section className="my-5">
   <div className="text-center mb-3">
-    <p style={{color: "#1CC7C1"}} className="h4 mb-3">BLOG</p>
+    <p className="h4 mb-3 text-brand">BLOG</p>
     <p className="h1">What's Our Patients Says</p>
   </div>
   <Row xs={1} md={3}>

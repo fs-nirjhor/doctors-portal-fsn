@@ -13,7 +13,7 @@ return (
         <img src={photo} alt="people" className="img-fluid"/>
       </Col>
       <Col xs={8}>
-        <p style={{color: "#1CC7C1"}} className="h6">{name}</p>
+        <p className="h6 text-brand">{name}</p>
         <p className="small">{address}</p>
       </Col>
       </Row>

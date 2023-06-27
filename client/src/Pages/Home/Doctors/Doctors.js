@@ -24,7 +24,7 @@ const doctorsData = [
 const Doctors = () => {
   return (
     <section className="my-5">
-      <p style={{ color: "#1CC7C1" }} className="h3 mb-3 text-center">
+      <p className="h3 mb-3 text-center text-brand">
         OUR DOCTORS
       </p>
       <Row xs={1} md={3}>

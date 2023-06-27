@@ -27,7 +27,7 @@ const ServiceArea = () => {
 return (
   <section>
   <div className="text-center my-5">
-    <p className="h4 mb-3" style={{color: "#1CC7C1"}}>OUR SERVICES</p>
+    <p className="h4 mb-3 text-brand" >OUR SERVICES</p>
     <h2>Services We Provide</h2>
   </div>
   <Row xs={1} md={3}>

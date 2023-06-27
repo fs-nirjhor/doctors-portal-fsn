@@ -8,7 +8,7 @@ const Header = () => {
 return (
   <header>
   <section className="header-container">
-    <NavigationBar/>
+    <NavigationBar bw="text-bw"/>
     <HeaderMain/>
   </section>
   <BuisnessInfo/>

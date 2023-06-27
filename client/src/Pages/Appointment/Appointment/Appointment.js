@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { Container } from "react-bootstrap";
-import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import Footer from "../../Shared/Footer/Footer";
+import AppointmentHeader from "../AppointmentHeader/AppointmentHeader";
 
 const Appointment = () => {
+  const [date, setDate] = useState(new Date());
+console.log(date.toDateString());
 return (
   <div>
-    <NavigationBar/>
   <Container >
+    <AppointmentHeader date={date} setDate={setDate}/>
     <Footer/>
   </Container>
   </div>
