@@ -10,8 +10,8 @@ const AppointmentHeader = ({date,setDate}) => {
   return (
     <Container className="appointment-header pb-5">
       <NavigationBar />
-      <Row className="align-items-center" xs={1} md={2}>
-        <Col className="p-3">
+      <Row className="mt-5 align-items-center" xs={1} md={2}>
+        <Col className="pb-5">
           <p className="h2 fw-bold text-center mb-3">Appointment</p>
           <Calendar
             onChange={setDate}
