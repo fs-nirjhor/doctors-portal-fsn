@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import {UserContext} from "../../../App.js";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../../../firebase.init.js";
 
 const LoginForm = () => {
-  const [ , setLoggedUser] = useContext(UserContext);
   const [hasAccount, setHasAccount] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
   const location = useLocation();
@@ -24,9 +22,6 @@ const LoginForm = () => {
     if (hasAccount) {
       userCredential = await signInWithEmailAndPassword(auth, email, password);
       const displayName = userCredential.user.displayName;
-      const idToken = userCredential.user.accessToken;
-      setLoggedUser({username:displayName,email});
-     localStorage.setItem("idToken",idToken);
       alert("Welcome " + displayName);
       navigate(location.state ? location.state.from : "/");
     } else {
