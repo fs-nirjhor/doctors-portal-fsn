@@ -16,7 +16,7 @@ function NavigationBar({bw}) {
             <Nav.Link className="me-2" as={NavLink} to="/services">Dental Services</Nav.Link>
             <Nav.Link className={`${bw} me-2`} as={NavLink} to="/reviews">Reviews</Nav.Link>
             <Nav.Link className={`${bw} me-2`}  as={NavLink} to="/blog">Blog</Nav.Link>
-            <Nav.Link className={`${bw} me-2`}  as={NavLink} to="/contact">Contact Us</Nav.Link>
+            <Nav.Link className={`${bw} me-2`}  as={NavLink} to="/contact">Contact us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
