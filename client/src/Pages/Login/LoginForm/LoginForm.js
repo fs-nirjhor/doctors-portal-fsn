@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import {auth} from "../../../firebase.init.js";
+import {auth} from "../../../firebase.init";
 
 const LoginForm = () => {
   const [hasAccount, setHasAccount] = useState(true);
