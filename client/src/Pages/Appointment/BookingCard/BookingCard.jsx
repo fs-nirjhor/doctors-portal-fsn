@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { Col, Card, Button } from "react-bootstrap";
 import BookingModal from "../BookingModal/BookingModal";
-//import BookingModal from "../BookingModal/TestModal";
 
 const BookingCard = ({booking, date}) => {
   const {name, time, space} = booking;
