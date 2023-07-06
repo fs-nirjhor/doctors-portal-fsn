@@ -1,5 +1,6 @@
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function BookingModal({ isOpen, closeModal, booking, date }) {
   const { name, time } = booking;
@@ -8,20 +9,17 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     data.service = booking.name;
-    data.createdDate = new Date();
-    fetch(`http://localhost:5000/add-appointment`, {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => console.log(error.message));
-    closeModal();
+    data.created = new Date();
+  const url = "http://localhost:5000/add-appointment";
+  try {
+    const res = await axios.post(url, data);
+    console.log(res.data);
+    if (res.data) {closeModal()}
+  } catch (e) {
+    alert(e.message);
+  }
   };
   const dateString = date.toISOString().substring(0, 10);
   return (
@@ -45,10 +43,10 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
             <Form.Group className="mb-3">
               <Form.Control
                 type="text"
-                name="username"
+                name="name"
                 required
                 placeholder="Your Name"
-                {...register("username", {
+                {...register("name", {
                   required: true,
                   pattern: /^[A-Za-z\s]+$/i,
                 })}

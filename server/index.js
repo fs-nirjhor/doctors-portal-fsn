@@ -32,7 +32,7 @@ async function run() {
       const appointment = req.body;
       const result = await appointmentCollection.insertOne(appointment);
       console.log(result);
-      res.send(result);
+      res.send(!!result.insertedId);
     });
  
  // pinged to mongodb
