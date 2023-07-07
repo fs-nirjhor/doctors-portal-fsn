@@ -4,6 +4,7 @@ import axios from "axios";
 
 function BookingModal({ isOpen, closeModal, booking, date }) {
   const { name, time } = booking;
+  const dateString = date.toISOString().substring(0, 10);
   const {
     register,
     handleSubmit,
@@ -15,13 +16,11 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
   const url = "http://localhost:5000/add-appointment";
   try {
     const res = await axios.post(url, data);
-    console.log(res.data);
     if (res.data) {closeModal()}
   } catch (e) {
     alert(e.message);
   }
   };
-  const dateString = date.toISOString().substring(0, 10);
   return (
     <>
       <Modal show={isOpen} onHide={closeModal} centered>
