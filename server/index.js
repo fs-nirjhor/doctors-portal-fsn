@@ -34,6 +34,16 @@ async function run() {
       console.log(req.body.service + ' appointment successful!');
       res.send(!!result.insertedId);
     });
+    
+    app.get("/appointment-by-date", async(req,res) => {
+    //  const date = req.body ;
+    const date = {date: req.query.date};
+      console.log('date', date);
+      const result = await  appointmentCollection.find(date).toArray();
+     console.log(result);
+     // res.send(result[0]);
+      res.send(result);
+    })
  
  // pinged to mongodb
     await client.db("doctorsPortal").command({ ping: 1 });

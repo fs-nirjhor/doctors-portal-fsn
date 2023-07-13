@@ -8,3 +8,8 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+.react-calendar__tile--active {
+  background: linear-gradient(75deg, #19eec0, #23bfd7) !important;
+  color: white;
+  border-radius: 5px;
+}

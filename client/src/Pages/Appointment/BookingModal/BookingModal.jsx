@@ -2,9 +2,10 @@ import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
+
 function BookingModal({ isOpen, closeModal, booking, date }) {
   const { name, time } = booking;
-  const dateString = date.toISOString().substring(0, 10);
+  const isoDate = date.toISOString().substring(0, 10);
   const {
     register,
     handleSubmit,
@@ -12,15 +13,20 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
   } = useForm();
   const onSubmit = async (data) => {
     data.service = booking.name;
+    data.date = date.toLocaleDateString();
     data.created = new Date();
   const url = "http://localhost:5000/add-appointment";
   try {
     const res = await axios.post(url, data);
-    if (res.data) {closeModal()}
+    if (res.data) {
+      alert("Appointment Booked on " + isoDate);
+      closeModal();
+    }
   } catch (e) {
     alert(e.message);
   }
   };
+  
   return (
     <>
       <Modal show={isOpen} onHide={closeModal} centered>
@@ -91,11 +97,10 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
               <Form.Control
                 type="date"
                 required
-                defaultValue={dateString}
-                {...register("date", {
-                  value: dateString,
-                })}
+                defaultValue={isoDate}
                 disabled
+                {...register("date", {
+                  value: isoDate })}
               />
             </Form.Group>
             <Form.Group className="mb-3">

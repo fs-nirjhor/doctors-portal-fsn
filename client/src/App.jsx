@@ -1,10 +1,11 @@
-import React, {useState, useEffect, createContext} from "react";
+import {useState, useEffect, createContext} from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home/Home";
 import Appointment from "./Pages/Appointment/Appointment/Appointment";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import { onAuthStateChanged } from "firebase/auth";
 import {auth} from "./firebase.init";
 
@@ -33,6 +34,7 @@ function App() {
          <Route path="/login" element={<Login/>}/>
          <Route element={<PrivateRoute/>}>
          <Route path="/appointment" element={<Appointment/>}/>
+         <Route path="/dashboard/appointment" element={<Dashboard/>}/>
           </Route>
       </Routes>
    </BrowserRouter>
