@@ -38,7 +38,7 @@ const Testimonial = () => {
           <p className="h4 mb-3 text-brand">
             TESTIMONIAL
           </p>
-          <p className="h1">What's Our Patients Says</p>
+          <p className="h1">What&apos;s Our Patients Says</p>
         </Col>
         <Col
           xs={4}

@@ -1,12 +1,11 @@
-import { Outlet } from "react-router-dom";
 import {useState,useEffect} from "react";
-import Sidebar from "../Sidebar/Sidebar";
-import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
+import Calendar from "../Calendar/Calendar";
+import AppointmentList from "../AppointmentList/AppointmentList" ;
 import { Row, Col} from "react-bootstrap";
 import axios from "axios";
 
 
-const Dashboard = () => {
+const Appointment = () => {
   const [date, setDate] = useState(new Date());
   const onDateChange = (date) => {
     setDate(date);
@@ -25,16 +24,13 @@ const Dashboard = () => {
     getAppointment();
   }, [date]);
 return (
-  < >
   <main>
-  <NavigationBar/>
-    <Row >
-      <Col xs={12} md={2}><Sidebar/></Col>
-      <Col xs={12} md={10}><Outlet/></Col>
+    <Row xs={1} md={2}>
+      <Col ><Calendar date={date} onDateChange={onDateChange}/></Col>
+      <Col ><AppointmentList appointment={appointment}/></Col>
     </Row>
   </main>
-  </>
 );
 };
 
-export default Dashboard;
+export default Appointment;

@@ -13,3 +13,6 @@
   color: white;
   border-radius: 5px;
 }
+.gradiant-bg {
+  background: linear-gradient(75deg, #19eec0, #23bfd7);
+}

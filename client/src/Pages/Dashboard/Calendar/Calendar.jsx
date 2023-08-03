@@ -8,7 +8,7 @@ return (
      <Calendar
             onChange={onDateChange}
             value={date}
-            className="border-0 shadow-lg rounded py-3 w-100 overflow-scroll"
+            className="border-0 shadow-md rounded py-3 w-100 overflow-scroll"
           />
   </div>
 );

@@ -6,6 +6,7 @@ import Appointment from "./Pages/Appointment/Appointment/Appointment";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import AppointmentList from "./Pages/Dashboard/Appointment/Appointment";
 import { onAuthStateChanged } from "firebase/auth";
 import {auth} from "./firebase.init";
 
@@ -34,7 +35,9 @@ function App() {
          <Route path="/login" element={<Login/>}/>
          <Route element={<PrivateRoute/>}>
          <Route path="/appointment" element={<Appointment/>}/>
-         <Route path="/dashboard/appointment" element={<Dashboard/>}/>
+         <Route path="/dashboard" element={<Dashboard/>} >
+         <Route index element={<AppointmentList/>} />
+          </Route>
           </Route>
       </Routes>
    </BrowserRouter>

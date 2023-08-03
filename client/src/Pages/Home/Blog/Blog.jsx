@@ -34,7 +34,7 @@ return (
   <section className="my-5">
   <div className="text-center mb-3">
     <p className="h4 mb-3 text-brand">BLOG</p>
-    <p className="h1">What's Our Patients Says</p>
+    <p className="h1">What&apos;s Our Patients Says</p>
   </div>
   <Row xs={1} md={3}>
     {
