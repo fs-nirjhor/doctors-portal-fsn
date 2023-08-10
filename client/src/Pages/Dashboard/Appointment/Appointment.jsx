@@ -26,8 +26,8 @@ const Appointment = () => {
 return (
   <main>
     <Row xs={1} md={2}>
-      <Col ><Calendar date={date} onDateChange={onDateChange}/></Col>
-      <Col ><AppointmentList appointment={appointment}/></Col>
+      <Col><Calendar date={date} onDateChange={onDateChange}/></Col>
+      <Col><AppointmentList appointment={appointment}/></Col>
     </Row>
   </main>
 );
