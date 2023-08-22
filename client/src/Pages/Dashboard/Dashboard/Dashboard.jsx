@@ -25,15 +25,13 @@ const Dashboard = () => {
     getAppointment();
   }, [date]);
 return (
-  < >
   <main>
   <NavigationBar/>
     <Row >
-      <Col xs={12} md={2}><Sidebar/></Col>
-      <Col xs={12} md={10}><Outlet/></Col>
+      <Col xs={12} md={2}> <Sidebar/> </Col>
+      <Col xs={12} md={10}> <Outlet/> </Col>
     </Row>
   </main>
-  </>
 );
 };
 
