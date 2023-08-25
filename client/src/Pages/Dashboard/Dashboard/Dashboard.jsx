@@ -7,23 +7,7 @@ import axios from "axios";
 
 
 const Dashboard = () => {
-  const [date, setDate] = useState(new Date());
-  const onDateChange = (date) => {
-    setDate(date);
-  };
-  const [appointment, setAppointment] = useState([]);
-  useEffect(() => {
-    const getAppointment = async () => {
-     const appointmentDate = date.toLocaleDateString();
-      try {
-      const res = await axios.get(`http://localhost:5000/appointment-by-date?date=${appointmentDate}`);
-      setAppointment(res.data);
-  } catch (e) {
-    alert(e.message);
-  }
-    };
-    getAppointment();
-  }, [date]);
+ 
 return (
   <main>
   <NavigationBar/>
