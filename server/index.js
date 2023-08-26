@@ -53,8 +53,14 @@ async function run() {
     app.post("/add-doctors", (req, res) => {
       const name = req.body.name;
       const email = req.body.email;
+      const phone = req.body.phone;
       const photo = req.files.photo;
-      console.log(name, email, photo);
+      photo.mv(`${__dirname}/doctors/${photo.name}`, error => {
+        if (error) {
+        res.status(500).send(error);
+        }
+        res.status(200).send({name,email, phone, photo: `/${photo.name}` });
+      });
     });
 
     // pinged to mongodb

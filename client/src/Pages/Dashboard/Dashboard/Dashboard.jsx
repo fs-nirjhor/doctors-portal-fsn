@@ -1,9 +1,7 @@
 import { Outlet } from "react-router-dom";
-import {useState,useEffect} from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import { Row, Col} from "react-bootstrap";
-import axios from "axios";
 
 
 const Dashboard = () => {

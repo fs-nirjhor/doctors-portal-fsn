@@ -22,10 +22,11 @@ const AddDoctors = () => {
     formData.append("photo", photo);
     formData.append("name", info.name);
     formData.append("email", info.email);
+    formData.append("phone", info.phone);
 
       try {
         const response = await axios.post("http://localhost:5000/add-doctors", formData);
-        console.log(formData)
+        console.log(response.data)
       } catch (error) {
         console.log(error);
       }
@@ -48,6 +49,13 @@ const AddDoctors = () => {
           name="email"
           className="form-control mb-3"
           placeholder="Doctor's Email"
+          onChange={handleInfoChange}
+        />
+        <input
+          type="tel"
+          name="phone"
+          className="form-control mb-3"
+          placeholder="Doctor's mobile number"
           onChange={handleInfoChange}
         />
         <input
