@@ -32,6 +32,8 @@ async function run() {
       .db("doctorsPortal")
       .collection("appointment");
 
+    const doctorCollection = client.db("doctorsPortal").collection("doctors");
+
     // post
     app.post("/add-appointment", async (req, res) => {
       const appointment = req.body;
@@ -55,13 +57,20 @@ async function run() {
       const email = req.body.email;
       const phone = req.body.phone;
       const photo = req.files.photo;
-      photo.mv(`${__dirname}/doctors/${photo.name}`, error => {
+      photo.mv(`${__dirname}/doctors/${photo.name}`, async (error) => {
         if (error) {
-        res.status(500).send(error);
+          res.status(500).send(error);
         }
-        res.status(200).send({name,email, phone, photo: `/${photo.name}` });
+        const doctorData = { name, email, phone, photo: `/${photo.name}` };
+        const result = await doctorCollection.insertOne(doctorData);
+        res.status(200).send(doctorData);
       });
     });
+
+    app.get('/doctors', async (req, res) => {
+     const result = await doctorCollection.find().toArray();
+     res.send(result);
+    })
 
     // pinged to mongodb
     await client.db("doctorsPortal").command({ ping: 1 });
