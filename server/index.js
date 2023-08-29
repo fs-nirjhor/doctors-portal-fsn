@@ -42,13 +42,9 @@ async function run() {
       res.send(!!result.insertedId);
     });
 
-    app.get("/appointment-by-date", async (req, res) => {
-      //  const date = req.body ;
-      const date = { date: req.query.date };
-      console.log("date", date);
+    app.post("/appointment-by-date", async (req, res) => {
+      const date = { date: req.body.date };
       const result = await appointmentCollection.find(date).toArray();
-      console.log(result);
-      // res.send(result[0]);
       res.send(result);
     });
 

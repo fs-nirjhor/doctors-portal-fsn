@@ -15,7 +15,7 @@ const Appointment = () => {
     const getAppointment = async () => {
      const appointmentDate = date.toLocaleDateString();
       try {
-      const res = await axios.get(`http://localhost:5000/appointment-by-date?date=${appointmentDate}`);
+      const res = await axios.post(`http://localhost:5000/appointment-by-date`, {date:appointmentDate});
       setAppointment(res.data);
   } catch (e) {
     alert(e.message);
