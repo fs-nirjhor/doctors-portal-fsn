@@ -1,11 +1,13 @@
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-
+import { useContext } from "react";
+import { UserContext } from './../../../App';
 
 function BookingModal({ isOpen, closeModal, booking, date }) {
   const { name, time } = booking;
   const isoDate = date.toISOString().substring(0, 10);
+  const [currentUser] = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -68,7 +70,7 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
                 name="phone"
                 placeholder="Phone Number"
                 required
-                {...register("phone", { required: true, pattern: /^[0-9]*$/i })}
+                {...register("phone", { required: true})}
               />
               {errors.phone && (
                 <Form.Text className="small text-danger ms-3 mt-2">
@@ -82,9 +84,12 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
                 name="email"
                 placeholder="Email"
                 required
+                defaultValue={currentUser.email}
+                disabled
                 {...register("email", {
                   required: true,
                   pattern: /^\S+@\S+\.\S+$/,
+                  value: currentUser.email,
                 })}
               />
               {errors.email && (

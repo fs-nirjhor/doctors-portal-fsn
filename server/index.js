@@ -44,8 +44,16 @@ async function run() {
 
     app.post("/appointment-by-date", async (req, res) => {
       const date = { date: req.body.date };
-      const result = await appointmentCollection.find(date).toArray();
-      res.send(result);
+      const email = { email: req.body.user.email };
+      const doctorsEmail = await doctorCollection.find(email).toArray();
+      if (doctorsEmail.length) {
+        const allAppointment = await appointmentCollection.find(date).toArray();
+        res.send(allAppointment);
+      } else {
+        const usersAppointment = await appointmentCollection.find(email).toArray();
+        const currentAppointment = usersAppointment.filter(appointment => appointment.date === req.body.date);
+        res.send(currentAppointment);
+      }
     });
 
     app.post("/add-doctors", (req, res) => {
@@ -63,10 +71,10 @@ async function run() {
       });
     });
 
-    app.get('/doctors', async (req, res) => {
-     const result = await doctorCollection.find().toArray();
-     res.send(result);
-    })
+    app.get("/doctors", async (req, res) => {
+      const result = await doctorCollection.find().toArray();
+      res.send(result);
+    });
 
     // pinged to mongodb
     await client.db("doctorsPortal").command({ ping: 1 });
