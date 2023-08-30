@@ -43,16 +43,15 @@ async function run() {
     });
 
     app.post("/appointment-by-date", async (req, res) => {
-      const date = { date: req.body.date };
-      const email = { email: req.body.user.email };
-      const doctorsEmail = await doctorCollection.find(email).toArray();
+      const date = req.body.date ;
+      const email = req.body.user.email ;
+      const doctorsEmail = await doctorCollection.find({email:email}).toArray();
       if (doctorsEmail.length) {
-        const allAppointment = await appointmentCollection.find(date).toArray();
+        const allAppointment = await appointmentCollection.find({date:date}).toArray();
         res.send(allAppointment);
       } else {
-        const usersAppointment = await appointmentCollection.find(email).toArray();
-        const currentAppointment = usersAppointment.filter(appointment => appointment.date === req.body.date);
-        res.send(currentAppointment);
+        const usersAppointment = await appointmentCollection.find({date:date,email:email}).toArray();
+        res.send(usersAppointment);
       }
     });
 

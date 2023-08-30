@@ -22,8 +22,8 @@ const LoginForm = () => {
     if (hasAccount) {
       userCredential = await signInWithEmailAndPassword(auth, email, password);
       const displayName = userCredential.user.displayName;
-      alert("Welcome " + displayName);
       navigate(location.state ? location.state.from : "/");
+      alert("Welcome " + displayName);
     } else {
       userCredential = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(auth.currentUser, { displayName: username });

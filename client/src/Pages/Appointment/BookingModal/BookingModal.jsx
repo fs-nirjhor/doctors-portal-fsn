@@ -21,8 +21,8 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
   try {
     const res = await axios.post(url, data);
     if (res.data) {
-      alert("Appointment Booked on " + isoDate);
       closeModal();
+      alert("Appointment Booked on " + isoDate);
     }
   } catch (e) {
     alert(e.message);
