@@ -75,6 +75,12 @@ async function run() {
       res.send(result);
     });
 
+    app.post('/isDoctor', async (req, res) => {
+      const email = req.body.email;
+      const isDoctor = await doctorCollection.find({email:email}).toArray();
+      res.send(!!isDoctor.length);
+    });
+
     // pinged to mongodb
     await client.db("doctorsPortal").command({ ping: 1 });
     console.log(
