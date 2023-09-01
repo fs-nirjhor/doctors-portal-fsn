@@ -25,9 +25,8 @@ const AddDoctors = () => {
     formData.append("phone", info.phone);
 
       try {
-        const res = await axios.post("http://localhost:5000/add-doctors", formData);
-        console.log(res.data)
-        alert(res.data.name + ' added successfully')
+        await axios.post("http://localhost:5000/add-doctors", formData);
+        alert(info.name + ' added successfully')
       } catch (error) {
         console.log(error);
       }

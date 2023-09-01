@@ -45,39 +45,48 @@ async function run() {
     });
 
     app.post("/appointment-by-date", async (req, res) => {
-      const date = req.body.date ;
-      const email = req.body.user.email ;
-      const doctorsEmail = await doctorCollection.find({email}).toArray();
+      const date = req.body.date;
+      const email = req.body.user.email;
+      const doctorsEmail = await doctorCollection.find({ email }).toArray();
       if (doctorsEmail.length) {
-        const allAppointment = await appointmentCollection.find({date:date}).toArray();
+        const allAppointment = await appointmentCollection
+          .find({ date: date })
+          .toArray();
         res.send(allAppointment);
       } else {
-        const usersAppointment = await appointmentCollection.find({date:date,email}).toArray();
+        const usersAppointment = await appointmentCollection
+          .find({ date: date, email })
+          .toArray();
         res.send(usersAppointment);
       }
     });
 
-    app.post("/add-doctors", (req, res) => {
+    app.post("/add-doctors", async (req, res) => {
       const name = req.body.name;
       const email = req.body.email;
       const phone = req.body.phone;
       const photo = req.files.photo;
-      const filePath = `${__dirname}/doctors/${photo.name}`;
+      // save image to database as base64
+      const newImg = photo.data.toString("base64");
+      const img = Buffer.from(newImg, "base64");
+      const image = { contentType: photo.mimetype, size: photo.size, img };
+      const doctorData = { name, email, phone, image };
+      const result = await doctorCollection.insertOne(doctorData);
+      res.status(200).send(result);
+
+      /* 
+      //  save image to a folder in server and access as link 
+     const filePath = `${__dirname}/doctors/${photo.name}`;
+
       photo.mv(filePath, async (error) => {
         if (error) {
           res.status(500).send(error);
         }
-        const newImg = fs.readFileSync(filePath).toString("base64");
-        const img = Buffer.from(newImg,"base64");
         
-        const image = {contentType: photo.mimetype, size: photo.size, img:`data:${photo.mimetype};base64,`+img }
-        // the photo can get through link (/photo) and also with binary data (img)
-        const doctorData = { name, email, phone, photo: `/${photo.name}`, image };
-        // remove is essential for save as binary
-        //fs.remove(filePath);
+        const doctorData = { name, email, phone, photo: `/${photo.name}` };
         const result = await doctorCollection.insertOne(doctorData);
         res.status(200).send(doctorData);
-      });
+      }); */
     });
 
     app.get("/doctors", async (req, res) => {
@@ -85,9 +94,9 @@ async function run() {
       res.send(result);
     });
 
-    app.post('/isDoctor', async (req, res) => {
+    app.post("/isDoctor", async (req, res) => {
       const email = req.body.email;
-      const isDoctor = await doctorCollection.find({email}).toArray();
+      const isDoctor = await doctorCollection.find({ email }).toArray();
       res.send(!!isDoctor.length);
     });
 
