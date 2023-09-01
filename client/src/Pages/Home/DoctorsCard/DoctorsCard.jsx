@@ -6,7 +6,11 @@ const DoctorsCard = ({doctor}) => {
   return (
     <Col className="my-3">
       <Card >
-        <Card.Img src={'http://localhost:5000'+photo}/>
+        {doctor.image ? 
+        <Card.Img src={`data:${doctor.image.contentType};base64,${doctor.image.img}`} />
+        :
+          <Card.Img src={'http://localhost:5000'+photo}/>
+          }
         <Card.Body className="text-center">
           <Card.Title >{name}</Card.Title>
           <Card.Text >{phone}</Card.Text>

@@ -11,7 +11,6 @@ const Doctors = () => {
     (async () => {
       const res = await axios.get("http://localhost:5000/doctors");
       setDoctors(res.data);
-      console.log(res.data)
     })().catch((error) => alert(error.message));
   }, []);
 
