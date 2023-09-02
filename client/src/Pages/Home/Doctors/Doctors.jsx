@@ -9,7 +9,7 @@ const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
   useEffect(() => {
     (async () => {
-      const res = await axios.get("http://localhost:5000/doctors");
+      const res = await axios.get("https://doctors-portal-fsn-server.onrender.com/doctors");
       setDoctors(res.data);
     })().catch((error) => alert(error.message));
   }, []);

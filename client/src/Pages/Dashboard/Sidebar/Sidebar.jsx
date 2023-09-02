@@ -2,16 +2,19 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
-import { UserContext } from './../../../App';
+import { UserContext } from "./../../../App";
 
 const Sidebar = () => {
   const [isDoctor, setIsDoctor] = useState(false);
-  const [currentUser] = useContext(UserContext)
+  const [currentUser] = useContext(UserContext);
   useEffect(() => {
     (async () => {
-      const validity = await axios.post("http://localhost:5000/isDoctor", currentUser);
+      const validity = await axios.post(
+        "https://doctors-portal-fsn-server.onrender.com/isDoctor",
+        currentUser
+      );
       setIsDoctor(validity.data);
-    })().catch(error => alert(error.message));
+    })().catch((error) => alert(error.message));
   }, [currentUser]);
   return (
     <div className="gradiant-bg d-flex flex-md-column justify-content-center h-100">

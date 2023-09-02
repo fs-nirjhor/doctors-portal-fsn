@@ -25,7 +25,7 @@ const AddDoctors = () => {
     formData.append("phone", info.phone);
 
       try {
-        await axios.post("http://localhost:5000/add-doctors", formData);
+        await axios.post("https://doctors-portal-fsn-server.onrender.com/add-doctors", formData);
         alert(info.name + ' added successfully')
       } catch (error) {
         console.log(error);

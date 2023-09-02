@@ -9,7 +9,7 @@ const DoctorsCard = ({doctor}) => {
         {doctor.image ? 
         <Card.Img src={`data:${doctor.image.contentType};base64,${doctor.image.img}`} />
         :
-          <Card.Img src={'http://localhost:5000'+photo}/>
+          <Card.Img src={'https://doctors-portal-fsn-server.onrender.com'+photo}/>
           }
         <Card.Body className="text-center">
           <Card.Title >{name}</Card.Title>

@@ -18,7 +18,7 @@ const Appointment = () => {
       const appointmentDate = date.toLocaleDateString();
       try {
         const res = await axios.post(
-          `http://localhost:5000/appointment-by-date`,
+          `https://doctors-portal-fsn-server.onrender.com/appointment-by-date`,
           { date: appointmentDate, user: currentUser }
         );
         setAppointment(res.data);

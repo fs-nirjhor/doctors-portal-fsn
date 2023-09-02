@@ -17,7 +17,7 @@ function BookingModal({ isOpen, closeModal, booking, date }) {
     data.service = booking.name;
     data.date = date.toLocaleDateString();
     data.created = new Date();
-  const url = "http://localhost:5000/add-appointment";
+  const url = "https://doctors-portal-fsn-server.onrender.com/add-appointment";
   try {
     const res = await axios.post(url, data);
     if (res.data) {
