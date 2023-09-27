@@ -117,5 +117,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Doctors Portal Server is running on port ${process.env.PORT} & http://localhost:5000`);
+  console.log(`Doctors Portal Server is running on port ${process.env.PORT || 'http://localhost:5000'}`);
 });
