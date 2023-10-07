@@ -15,7 +15,6 @@ app.use(express.static("doctors"));
 app.use(fileUpload());
 
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-const { fsyncSync } = require("fs-extra");
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@doctors-portal-fsn.5lopyzi.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
@@ -62,9 +61,7 @@ async function run() {
     });
 
     app.post("/add-doctors", async (req, res) => {
-      const name = req.body.name;
-      const email = req.body.email;
-      const phone = req.body.phone;
+      const { name, email, phone } = req.body;
       const photo = req.files.photo;
       // save image to database as base64
       const newImg = photo.data.toString("base64");
