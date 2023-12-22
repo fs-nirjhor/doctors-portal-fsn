@@ -22,11 +22,13 @@ function NavigationBar({bw}) {
             <Nav.Link className="me-2" as={NavLink} to="/">Home</Nav.Link>
             <Nav.Link className="me-2" as={NavLink} to="/about">About</Nav.Link>
             <Nav.Link className="me-2" as={NavLink} to="/appointment">Dental Services</Nav.Link>
-            <Nav.Link className={`${bw} me-2`} as={NavLink} to="/reviews">Reviews</Nav.Link>
-            <Nav.Link className={`${bw} me-2`}  as={NavLink} to="/dashboard">Dashboard</Nav.Link>
+       {/*  <Nav.Link className={`${bw} me-2`} as={NavLink} to="/reviews">Reviews</Nav.Link>
+            <Nav.Link className={`${bw} me-2`}  as={NavLink} to="/dashboard">Dashboard</Nav.Link> */}
+            <Nav.Link className="text-bw me-2" as={NavLink} to="/reviews">Reviews</Nav.Link>
+            <Nav.Link className="text-bw me-2"  as={NavLink} to="/dashboard">Dashboard</Nav.Link>
            { currentUser.email 
-           ? <Nav.Link className={`${bw} me-2`} onClick = {handleLogout} > Logout</Nav.Link>
-          : <Nav.Link className={`${bw} me-2`} as={NavLink} to="/login">Login</Nav.Link>
+           ? <Nav.Link className="text-bw me-2" onClick = {handleLogout} > Logout</Nav.Link>
+          : <Nav.Link className="text-bw me-2" as={NavLink} to="/login">Login</Nav.Link>
            }
           </Nav>
         </Navbar.Collapse>
